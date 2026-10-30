@@ -79,7 +79,7 @@ def start_timer():
     if not is_running:
         is_running = True
         start_button.config(text="Pause")
-        tick()
+        timer_id = root.after(1000, tick)
 
 
 def pause_timer():
