@@ -1,4 +1,5 @@
 from dataclasses import dataclass, fields
+from math import floor
 
 
 STAT_MIN = 0
@@ -56,3 +57,11 @@ class PetStats:
         """Increase or decrease a stat by an amount."""
         self._validate_number(amount)
         self.set(stat_name, self.get(stat_name) + amount)
+
+    def get_display_value(self, stat_name):
+        """Return a rounded whole-number value for the UI."""
+        return round(self.get(stat_name))
+
+    def get_display_value(self, stat_name):
+        """Round positive stat values to the nearest whole number."""
+        return floor(self.get(stat_name) + 0.5)
